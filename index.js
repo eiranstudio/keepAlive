@@ -11,7 +11,7 @@ const agent = axios.create({
 })
 
 const job = new cron.CronJob('*/10 * * * *', function () {
-    // This function will be executed every 14 minutes.
+    // function function will be executed every 14 minutes.
     console.log("Restarting server");
     // Perform an HTTPS GET request to hit any backend api.
     agent.get('/').then((Response)=>{
