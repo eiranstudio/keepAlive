@@ -14,13 +14,13 @@ const job = new cron.CronJob('*/10 * * * *', function () {
     // function function will be executed every 14 minutes.
     console.log("Restarting server");
     // Perform an HTTPS GET request to hit any backend api.
-    agent.get('/').then((Response)=>{
-        if(Response.status == 200){
+    agent.get('/').then((Response) => {
+        if (Response.status == 200) {
             console.log(`Server restarted: ${Response.status}`);
-        }else{
+        } else {
             console.log(`Failed to restart server with status code: ${Response.status}`)
         }
-    }).catch((err)=>{
+    }).catch((err) => {
         console.log('Error during Restart: ', err.message)
     })
 });
@@ -28,9 +28,10 @@ const job = new cron.CronJob('*/10 * * * *', function () {
 job.start()
 
 app.get('/', (req, res) => {
-  res.send('Hello Eiran! restarting crone job server')
+    console.log('Hello Eiran! restarting crone job server');
+    res.send(true);
 })
 
 app.listen(port, () => {
-  console.log(`Hello Eiran, iam listening on port: ${port}`)
+    console.log(`Hello Eiran, iam listening on port: ${port}`)
 })
