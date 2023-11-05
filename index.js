@@ -28,7 +28,7 @@ const job = new cron.CronJob('*/10 * * * *', function () {
 job.start()
 
 app.get('/', (req, res) => {
-  res.send('Hello Eiran!')
+  res.send('Hello Eiran! restarting crone job server')
 })
 
 app.listen(port, () => {
